@@ -2,7 +2,6 @@
 <div class="tile is-ancestor">
   <div class="tile is-parent is-4">
     <article class="tile is-child box">
-      <h4 class="title">Pie</h4>
       <div ref="pie"></div>
     </article>
   </div>
