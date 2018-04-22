@@ -3,12 +3,14 @@
     <div>
       <input v-model="text" placeholder="Add text here">
       <button @click="appendText()">Append text</button>
-      <button @click="clearText()">Clear text</button>
+      <button @click="clearData()">Clear text</button>
       <div>
         <span>{{ appendedText }}</span>
       </div>
     </div>
-    <div v-show="hasWords" ref="histogram"></div>
+    <div v-show="hasWords">
+      <div ref="histogram"></div>
+    </div>
   </div>
 </template>
 
@@ -30,21 +32,6 @@ export default {
   created() {
     this.fetchData();
   },
-  mounted() {
-    Plotly.plot(
-      this.$refs.histogram,
-      [
-        {
-          values: this.values,
-          labels: this.labels,
-          type: "pie"
-        }
-      ],
-      {
-        margin: { t: 0, l: 0, b: 0, r: 0 }
-      }
-    );
-  },
   methods: {
     fetchData() {
       let words = wordcount(this.appendedText);
@@ -53,8 +40,7 @@ export default {
     },
     appendText() {
       this.appendedText = `${this.appendedText} ${this.text}`;
-
-      this.fetchData(this.appendedText);
+      this.fetchData();
       this.plotGraph();
       this.setHasWords();
     },
@@ -76,9 +62,11 @@ export default {
     setHasWords() {
       this.hasWords = this.appendedText.length > 0;
     },
-    clearText() {
+    clearData() {
       this.appendedText = "";
       this.text = "";
+      this.values = [];
+      this.labels = [];
 
       this.setHasWords();
     }
