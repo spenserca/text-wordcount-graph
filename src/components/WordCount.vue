@@ -1,5 +1,12 @@
 <template>
   <div>
+    <div>
+      <input v-model="text" placeholder="Add text here" >
+      <button v-on:click="appendText()">Append text</button>
+      <div>
+        <span>{{ appendedText }}</span>
+      </div>
+    </div>
     <div ref="histogram"></div>
   </div>
 </template>
@@ -12,6 +19,8 @@ export default {
   name: "WordCount",
   data() {
     return {
+      text: "",
+      appendedText: "",
       values: [],
       labels: []
     };
@@ -36,11 +45,14 @@ export default {
   },
   methods: {
     fetchData() {
-      let words = wordcount();
+      let words = wordcount(this.appendedText);
       console.log(words);
 
       this.values = words.map(w => w.value);
       this.labels = words.map(w => w.key);
+    },
+    appendText() {
+      this.appendedText = `${this.appendedText} ${this.text}`;
     }
   }
 };

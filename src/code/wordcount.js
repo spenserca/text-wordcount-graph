@@ -1,8 +1,7 @@
 'use strict';
 
 module.exports = (input) => {
-  let text = input ? input : 'one one two three four five six seven eight nine ten eleven';
-  return text.replace(/[^a-zA-Z\s]/g, ' ')
+  return input.replace(/[^a-zA-Z\s]/g, ' ')
     .split(/\s/)
     .filter(s => s != '')
     .map(s => s.toUpperCase())
