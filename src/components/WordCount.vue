@@ -9,7 +9,7 @@
       </div>
     </div>
     <div v-show="hasWords">
-      <div ref="histogram"></div>
+      <div id="pie"></div>
     </div>
   </div>
 </template>
@@ -45,19 +45,21 @@ export default {
       this.setHasWords();
     },
     plotGraph() {
-      Plotly.plot(
-        this.$refs.histogram,
-        [
-          {
-            values: this.values,
-            labels: this.labels,
-            type: "pie"
-          }
-        ],
+      let data = [
         {
-          margin: { t: 0, l: 0, b: 0, r: 0 }
+          values: this.values,
+          labels: this.labels,
+          type: "pie"
         }
-      );
+      ];
+      let layout = {
+        title: "Word Counts",
+        showlegend: false
+      };
+      let config = {
+        displayModeBar: false
+      };
+      Plotly.newPlot("pie", data, layout, config);
     },
     setHasWords() {
       this.hasWords = this.appendedText.length > 0;
