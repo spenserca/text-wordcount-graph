@@ -46,13 +46,29 @@ export default {
   methods: {
     fetchData() {
       let words = wordcount(this.appendedText);
-      console.log(words);
-
       this.values = words.map(w => w.value);
       this.labels = words.map(w => w.key);
     },
     appendText() {
       this.appendedText = `${this.appendedText} ${this.text}`;
+
+      this.fetchData(this.appendedText);
+      this.plotGraph();
+    },
+    plotGraph() {
+      Plotly.plot(
+        this.$refs.histogram,
+        [
+          {
+            values: this.values,
+            labels: this.labels,
+            type: "pie"
+          }
+        ],
+        {
+          margin: { t: 0, l: 0, b: 0, r: 0 }
+        }
+      );
     }
   }
 };
