@@ -19,7 +19,7 @@ const updateExistingOrAddNewValue = (acc, value) => {
     acc[acc.indexOf(existingWord)].value++;
   }
   return acc;
-}
+};
 
 const byValueDescAlphaAsc = (a, b) => {
   if (a.value === b.value) {
