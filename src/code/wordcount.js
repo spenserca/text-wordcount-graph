@@ -8,7 +8,7 @@ module.exports = (input) => {
     .reduce(updateExistingOrAddNewValue, [])
     .sort(byValueDescAlphaAsc)
     .slice(0, 10);
-}
+};
 
 const updateExistingOrAddNewValue = (acc, value) => {
   let existingWord = acc.find(el => el.key == value);
