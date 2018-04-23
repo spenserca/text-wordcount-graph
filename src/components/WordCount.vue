@@ -62,20 +62,23 @@ export default {
       Plotly.newPlot("pie", data, layout, config);
     },
     setHasWords() {
-      this.hasWords = this.appendedText.length > 0;
+      this.hasWords = this.appendedText.length > 0 && this.appendedText.trim();
     },
     clearData() {
       this.appendedText = "";
       this.text = "";
       this.values = [];
       this.labels = [];
-
       this.setHasWords();
+      Plotly.purge("pie");
     }
   }
 };
 </script>
 
-<style>
-
+<style scoped>
+#pie {
+  padding-left: 25%;
+  padding-right: 25%;
+}
 </style>
