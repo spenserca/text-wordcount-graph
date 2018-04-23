@@ -5,18 +5,20 @@ module.exports = (input) => {
     .split(/\s/)
     .filter(s => s != '')
     .map(s => s.toUpperCase())
-    .reduce((acc, value, index, array) => {
-      let existingWord = acc.find(el => el.key == value);
-      if (!existingWord) {
-        acc.push({ key: value, value: 1 });
-      }
-      else {
-        acc[acc.indexOf(existingWord)].value++;
-      }
-      return acc;
-    }, [])
+    .reduce(updateExistingOrAddNewValue, [])
     .sort(byValueDescAlphaAsc)
     .slice(0, 10);
+}
+
+const updateExistingOrAddNewValue = (acc, value) => {
+  let existingWord = acc.find(el => el.key == value);
+  if (!existingWord) {
+    acc.push({ key: value, value: 1 });
+  }
+  else {
+    acc[acc.indexOf(existingWord)].value++;
+  }
+  return acc;
 }
 
 const byValueDescAlphaAsc = (a, b) => {
