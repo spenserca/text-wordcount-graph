@@ -62,7 +62,7 @@ export default {
       Plotly.newPlot("pie", data, layout, config);
     },
     setHasWords() {
-      this.hasWords = this.appendedText.length > 0;
+      this.hasWords = this.appendedText.length > 0 && this.appendedText.trim();
     },
     clearData() {
       this.appendedText = "";
@@ -70,6 +70,7 @@ export default {
       this.values = [];
       this.labels = [];
       this.setHasWords();
+      Plotly.purge("pie");
     }
   }
 };

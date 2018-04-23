@@ -3,7 +3,7 @@
 export default (input) => {
   return input.replace(/[^a-zA-Z\s]/g, ' ')
     .split(/\s/)
-    .filter(s => s != '')
+    .filter(s => s !== '')
     .map(s => s.toUpperCase())
     .reduce(updateExistingOrAddNewValue, [])
     .sort(byValueDescAlphaAsc)
