@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (input) => {
+export default (input) => {
   return input.replace(/[^a-zA-Z\s]/g, ' ')
     .split(/\s/)
     .filter(s => s != '')

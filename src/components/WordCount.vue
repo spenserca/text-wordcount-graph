@@ -69,13 +69,12 @@ export default {
       this.text = "";
       this.values = [];
       this.labels = [];
-
       this.setHasWords();
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
 
 </style>
