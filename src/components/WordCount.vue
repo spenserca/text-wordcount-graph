@@ -77,5 +77,8 @@ export default {
 </script>
 
 <style scoped>
-
+#pie {
+  padding-left: 25%;
+  padding-right: 25%;
+}
 </style>
