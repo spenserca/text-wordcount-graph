@@ -1,14 +1,13 @@
 'use strict';
 
-export default (input) => {
-  return input.replace(/[^a-zA-Z\s]/g, ' ')
+export default (input, wordsToDisplay = 10) =>
+  input.replace(/[^a-zA-Z\s]/g, ' ')
     .split(/\s/)
     .filter(s => s !== '')
     .map(s => s.toUpperCase())
     .reduce(updateExistingOrAddNewValue, [])
     .sort(byValueDescAlphaAsc)
-    .slice(0, 10);
-};
+    .slice(0, wordsToDisplay);
 
 const updateExistingOrAddNewValue = (acc, value) => {
   let existingWord = acc.find(el => el.key == value);
