@@ -10,7 +10,7 @@ export default (input, wordsToDisplay = 10) =>
     .slice(0, wordsToDisplay);
 
 const updateExistingOrAddNewValue = (acc, value) => {
-  let existingWord = acc.find(el => el.key == value);
+  let existingWord = acc.find(el => el.key === value);
   if (!existingWord) {
     acc.push({ key: value, value: 1 });
   }
