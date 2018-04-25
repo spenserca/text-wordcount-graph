@@ -19,12 +19,8 @@ const updateExistingOrAddNewValue = (acc, value) => {
 };
 
 const byValueDescAlphaAsc = (a, b) => {
-  if (a.value === b.value) {
-    return sortAlphabeticallyAsc(a, b);
-  }
-
-  // Sort descending by value
-  return b.value - a.value;
+  return a.value === b.value ? sortAlphabeticallyAsc(a, b)
+    : b.value - a.value;
 };
 
 const sortAlphabeticallyAsc = (a, b) => {
