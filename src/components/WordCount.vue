@@ -5,7 +5,7 @@
       <button @click="appendText()">Append text</button>
       <button @click="clearData()">Clear text</button>
       <div>
-        <span>{{ appendedText }}</span>
+        <span>{{ abbreviatedText() }}</span>
       </div>
     </div>
     <div v-show="hasWords">
@@ -71,6 +71,11 @@ export default {
       this.labels = [];
       this.setHasWords();
       Plotly.purge("pie");
+    },
+    abbreviatedText() {
+      return this.appendedText.length >= 64
+        ? `${this.appendedText.substring(0, 61)}...`
+        : this.appendedText;
     }
   }
 };

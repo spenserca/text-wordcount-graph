@@ -11,12 +11,10 @@ export default (input, wordsToDisplay = 10) =>
 
 const updateExistingOrAddNewValue = (acc, value) => {
   let existingWord = acc.find(el => el.key === value);
-  if (!existingWord) {
-    acc.push({ key: value, value: 1 });
-  }
-  else {
-    acc[acc.indexOf(existingWord)].value++;
-  }
+
+  existingWord ? acc[acc.indexOf(existingWord)].value++
+    : acc.push({ key: value, value: 1 });
+
   return acc;
 };
 
