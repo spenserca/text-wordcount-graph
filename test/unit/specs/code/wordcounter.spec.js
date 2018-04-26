@@ -1,6 +1,6 @@
 'use strict';
 
-import index from '@/code/wordcount';
+import index from '@/code/wordcounter';
 
 describe('index', () => {
   it('should return 10 items', () => {
