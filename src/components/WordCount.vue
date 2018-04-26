@@ -16,7 +16,7 @@
 
 <script>
 import Plotly from "plotly.js";
-import wordcount from "../code/wordcount";
+import wordcount from "../code/wordcounter";
 
 export default {
   name: "WordCount",
