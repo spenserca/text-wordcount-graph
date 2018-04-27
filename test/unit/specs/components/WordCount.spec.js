@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { shallow } from '@vue/test-utils';
 import WordCount from '@/components/WordCount';
 
 describe('WordCount.vue', () => {
@@ -74,11 +75,21 @@ describe('WordCount.vue', () => {
 
   describe('UI', () => {
     it('should not show the pie chart if no data exists', () => {
-
+      const wrapper = shallow(WordCount, {
+        data: {
+          hasWords: false
+        }
+      });
+      expect(wrapper.find('#pie').exists()).toBe(false);
     });
 
     it('should show the pie chart if data exists', () => {
-
+      const wrapper = shallow(WordCount, {
+        data: {
+          hasWords: true
+        }
+      });
+      expect(wrapper.find('#pie').exists()).toBe(true);
     });
   });
 

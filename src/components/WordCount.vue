@@ -5,10 +5,10 @@
       <button @click="appendText()">Append text</button>
       <button @click="clearData()">Clear text</button>
       <div>
-        <span>{{ abbreviatedText() }}</span>
+        <span class="abbreviated">{{ abbreviatedText() }}</span>
       </div>
     </div>
-    <div v-show="hasWords">
+    <div v-if="hasWords">
       <div id="pie"></div>
     </div>
   </div>
