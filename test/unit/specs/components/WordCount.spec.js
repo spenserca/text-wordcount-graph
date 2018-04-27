@@ -2,6 +2,10 @@ import Vue from 'vue';
 import WordCount from '@/components/WordCount';
 
 describe('WordCount.vue', () => {
+  it('should have a name', () => {
+    const name = WordCount.name;
+    expect(name).toEqual('WordCount');
+  });
 
   describe('Initial data', () => {
     it('should have default text', () => {

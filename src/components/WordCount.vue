@@ -15,9 +15,8 @@
 </template>
 
 <script>
-const Plotly = require("plotly.js/lib/core");
+import Plotly from "plotly.js/lib/core";
 Plotly.register(require("plotly.js/lib/pie"));
-// import Plotly from "plotly.js";
 import wordcount from "../code/wordcounter";
 
 export default {
