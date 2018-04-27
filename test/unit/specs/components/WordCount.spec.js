@@ -7,7 +7,11 @@ describe('WordCount.vue', () => {
     expect(name).toEqual('WordCount');
   });
 
-  describe('Initial data', () => {
+  describe('data', () => {
+    it('should have a data hook', () => {
+      expect(typeof WordCount.data).toBe('function');
+    });
+
     it('should have default text', () => {
       const text = WordCount.data().text;
       expect(text).toEqual('');
@@ -31,6 +35,40 @@ describe('WordCount.vue', () => {
     it('should have default hasWords', () => {
       const hasWords = WordCount.data().hasWords;
       expect(hasWords).toEqual(false);
+    });
+  });
+
+  describe('created', () => {
+    it('should have a created hook', () => {
+      expect(typeof WordCount.created).toBe('function');
+    });
+
+    // TODO: test that populateData is called on created()
+  });
+
+  describe('methods', () => {
+    it('should have a populateData method', () => {
+      expect(typeof WordCount.methods.populateData).toBe('function');
+    });
+
+    it('should have an appendText method', () => {
+      expect(typeof WordCount.methods.appendText).toBe('function');
+    });
+
+    it('should have a plotGraph method', () => {
+      expect(typeof WordCount.methods.plotGraph).toBe('function');
+    });
+
+    it('should have a setHasWords method', () => {
+      expect(typeof WordCount.methods.setHasWords).toBe('function');
+    });
+
+    it('should have a clearData method', () => {
+      expect(typeof WordCount.methods.clearData).toBe('function');
+    });
+
+    it('should have an abbreviatedText method', () => {
+      expect(typeof WordCount.methods.abbreviatedText).toBe('function');
     });
   });
 

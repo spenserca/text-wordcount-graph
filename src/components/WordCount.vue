@@ -31,17 +31,17 @@ export default {
     };
   },
   created() {
-    this.fetchData();
+    this.populateData();
   },
   methods: {
-    fetchData() {
+    populateData() {
       let words = wordcount(this.appendedText);
       this.values = words.map(w => w.value);
       this.labels = words.map(w => w.key);
     },
     appendText() {
       this.appendedText = `${this.appendedText} ${this.text}`;
-      this.fetchData();
+      this.populateData();
       this.plotGraph();
       this.setHasWords();
     },
