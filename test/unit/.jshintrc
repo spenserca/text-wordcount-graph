@@ -1,7 +1,4 @@
 {
-  "env": {
-    "jest": true
-  },
   "globals": {
     "jest": true,
     "expect": true,
@@ -17,5 +14,6 @@
     "require": true,
     "xdescribe": true,
     "xit": true
-  }
+  },
+  "esversion": 6
 }

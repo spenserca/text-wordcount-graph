@@ -19,7 +19,7 @@ describe('index', () => {
   });
 
   it('should remove punctuation from input', () => {
-    let input = 'you, my. my; :?\'-()&$!'
+    let input = 'you, my. my; :?\'-()&$!';
     expect(index(input)).toEqual([{ key: 'MY', value: 2 }, { key: 'YOU', value: 1 }]);
   });
 });
